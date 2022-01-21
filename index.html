@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="C:\Users\anshi\OneDrive\Desktop\Javascript\leapyear.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    box-sizing: border-box;
+}
+main{
+    min-height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-image: linear-gradient(22.5deg, rgb(13, 75, 44) 0%, rgb(13, 75, 44) 8%,rgb(46, 73, 62) 8%, rgb(46, 73, 62) 13%,rgb(78, 71, 80) 13%, rgb(78, 71, 80) 20%,rgb(111, 69, 98) 20%, rgb(111, 69, 98) 24%,rgb(144, 67, 117) 24%, rgb(144, 67, 117) 26%,rgb(177, 65, 135) 26%, rgb(177, 65, 135) 37%,rgb(209, 63, 153) 37%, rgb(209, 63, 153) 94%,rgb(242, 61, 171) 94%, rgb(242, 61, 171) 100%),linear-gradient(135deg, rgb(13, 75, 44) 0%, rgb(13, 75, 44) 8%,rgb(46, 73, 62) 8%, rgb(46, 73, 62) 13%,rgb(78, 71, 80) 13%, rgb(78, 71, 80) 20%,rgb(111, 69, 98) 20%, rgb(111, 69, 98) 24%,rgb(144, 67, 117) 24%, rgb(144, 67, 117) 26%,rgb(177, 65, 135) 26%, rgb(177, 65, 135) 37%,rgb(209, 63, 153) 37%, rgb(209, 63, 153) 94%,rgb(242, 61, 171) 94%, rgb(242, 61, 171) 100%),linear-gradient(67.5deg, rgb(13, 75, 44) 0%, rgb(13, 75, 44) 8%,rgb(46, 73, 62) 8%, rgb(46, 73, 62) 13%,rgb(78, 71, 80) 13%, rgb(78, 71, 80) 20%,rgb(111, 69, 98) 20%, rgb(111, 69, 98) 24%,rgb(144, 67, 117) 24%, rgb(144, 67, 117) 26%,rgb(177, 65, 135) 26%, rgb(177, 65, 135) 37%,rgb(209, 63, 153) 37%, rgb(209, 63, 153) 94%,rgb(242, 61, 171) 94%, rgb(242, 61, 171) 100%),linear-gradient(90deg, rgb(169, 4, 25),rgb(103, 24, 125)); background-blend-mode:overlay,overlay,overlay,normal;
+}
+.controlbox, .yearbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 0 0 #1113;
+    height: 300px;
+    width: 300px;
+    background: #000000;  
+    background: -webkit-linear-gradient(-135deg, #434343, #000000);  
+    background: linear-gradient(-135deg, #434343, #000000); 
+}
+.controlbox input{
+    width: 90%;
+    background-color: #fcc0d5dc;
+    border: 1px solid #f6015781;
+    outline: none;
+    border-radius: 2.5px;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.5s ease-in;
+}
+.controlbox input:hover, .controlbox input:focus{
+    border: 1.5px solid #f60157bb;
+}
+.controlbox input::-webkit-inner-spin-button, .controlbox input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.controlbox .btn{
+    background-color:#F60275;
+    padding: 10px;
+    transition: all 0.5s ease-in;
+    margin-top: 30px;
+    border-radius: 5px;
+    color: #141414;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.controlbox .btn:hover{
+    opacity: 0.7;
+    transform: scale(0.97);
+}
+.yearbox{
+    display: none;
+}
+.yearbox p{
+    color: #F60275;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+    </style>
+    <main>
+        <div class="controlbox" id="cbx">
+            <input type="number" id="year" placeholder="Year">
+            <div class="btn" id="check">CHECK</div>
+        </div>
+        <div class="yearbox" id="ybx">
+            <p id="result"></p>
+        </div>
+    </main>
+    <script>
+        var year = document.getElementById('year');
+        var chk = document.getElementById('check');
+        var cb = document.getElementById('cbx');
+        var yb = document.getElementById('ybx');
+        var rslt = document.getElementById('result');
+        chk.onclick = function(){
+            year.defaultValue = 1000;
+            //console.log(year.value);
+            //console.log(nm.value);
+            cb.style.display = "none";
+            yb.style.display = "flex";
+            var a = ` ${year.value}`;
+            var txt = "abx";
+            if(a%4 === 0){
+                if(a%100 === 0){
+                    if(a%400 === 0){
+                        txt = "It is a Leap Year";
+                    }else{
+                        txt = "It is not a Leap Year";
+                    }
+                }else{
+                    txt = "It is a Leap Year";
+                }
+            }else{
+                txt = "It is not a Leap Year";
+            }
+            rslt.innerHTML = txt;
+        }
+    </script>
+</body>
+</html>
